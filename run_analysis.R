@@ -1,6 +1,4 @@
 library(dplyr)
-# library(tidyverse)
-# library(stringr)
 tPath <- "C:/Project"
 setwd(tPath)
 # get the feature names and the active labels #
@@ -17,10 +15,10 @@ tPath1 <- "/UCI HAR Dataset/train/"
 f_train1 <- paste0(tPath, tPath1, "subject_train.txt")
 f_train2 <- paste0(tPath, tPath1, "X_train.txt")
 f_train3 <- paste0(tPath, tPath1, "y_train.txt")
-D_train1 <- read.table(f_train1)
+D_train1 <- read.table(f_train1, sep = " ")
 D_train2 <- read.fwf(f_train2, rep(fix1, fix2))
 D_train3 <- read.table(f_train3, sep = " ")
-# combine "Subject", "Active_Label", and "Train Set"
+# combine "Subject", "Active_Label", and "Train measurement"
 D_train <- cbind(D_train1, D_train3)
 D_train <- cbind(D_train, D_train2)
 head(D_train)
@@ -32,7 +30,7 @@ f_test3 <- paste0(tPath, tPath2, "y_test.txt")
 D_test1 <- read.table(f_test1, sep = " ")
 D_test2 <- read.fwf(f_test2, rep(fix1, fix2))
 D_test3 <- read.table(f_test3, sep = " ")
-# combine "Subject", "Active_Label", and "Test Set"
+# combine "Subject", "Active_Label", and "Test measurement"
 D_test <- cbind(D_test1, D_test3)
 D_test <- cbind(D_test, D_test2)
 # 1.	Merges the training and the test sets to create one data set. #
@@ -58,13 +56,13 @@ colnames(Dat) <- newName
 # output the data after finishing step 1. 2. 3. and 4. 
 fnm <- "CombinedTrainTestData.txt"
 write.table(Dat, fnm, quote = FALSE, sep = "\t", row.names = FALSE)
-# 5.	From the data set in step 4, creates a second, independent tidy data set #
-#       with the average of each variable for each activity and each subject. #
+# 	5.	From the data set in step 4, creates a second, independent tidy data set 	#
+#       	with the average of each variable for each activity and each subject. 		#
 M <- ncol(Dat)
 Dat3 <- Dat %>% 
   group_by(subject, activity_labels) %>%
   summarise_all("mean")
 fnm <- "Neat_meanSubjectActivityData.txt"
 write.table(Dat3, fnm, quote = FALSE, sep = "\t", row.names = FALSE)
-# End of Script #
+# End of th Script #
 
