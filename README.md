@@ -2,8 +2,12 @@
 Final project of Cousera course "Getting and Cleaning Data"
 
 R script "run_analysis.R" description
+
 The original data is under folder "UCI HAR Dataset"
 File "CodeBook.md" describes the variables and contents of the neat dataset in file "Neat_meanSubjectActivityData.txt"
+
+The R Script:
+
 A. Prepare Data
 	1. Read in "features.txt" and "activity_labels.txt" files
 	2. Read in train datasets
@@ -14,6 +18,7 @@ A. Prepare Data
 	3. Read in test datasets in the same way
 	4. Column combination of trait datasets (Subject, y, and X)
 	5. Column combination of test datasets (Subject, y, and X)
+	
 B. Project assignment
 	1. Merges the training and the test sets to create one data set.
 	 	Row combination of train and test dataset
@@ -29,4 +34,5 @@ B. Project assignment
 	5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
 		Combine rows to complete the task of building a neat data set
 		Output final neat dataset to the file "Neat_meanSubjectActivityData.txt"
+		
 C. End of the Scrit
