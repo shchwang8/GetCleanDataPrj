@@ -1,6 +1,6 @@
 library(dplyr)
-library(tidyverse)
-library(stringr)
+# library(tidyverse)
+# library(stringr)
 tPath <- "C:/Project"
 setwd(tPath)
 # get the feature names and the active labels #
@@ -37,9 +37,9 @@ D_test <- cbind(D_test1, D_test3)
 D_test <- cbind(D_test, D_test2)
 # 1.	Merges the training and the test sets to create one data set. #
 Dat <- rbind(D_train, D_test)
-# 4. Appropriately labels the data set with descriptive variable names. #
-colnames(Dat) <- c("subject", "Active_labels",D_features[, 2])
+colnames(Dat) <- c("subject", "Active_labels", D_features[, 2])
 # 2.	Extracts only the measurements on the mean and standard deviation for each measurement. #
+Header1 <- names(Dat)
 idx0 <- c(1:2)
 idx1 <- grep("mean()", Header1, fixed = TRUE)
 idx2 <- grep("std()", Header1, fixed = TRUE)
@@ -52,14 +52,19 @@ D_label.str <- D_label[, 2]
 Dat$activity_labels <- D_label.str[match(Dat$Active_labels, D_label.code)]
 M <- ncol(Dat)
 Dat <- Dat[, c(1, M, 3:(M-1))]
+# 4. Appropriately labels the data set with descriptive variable names. #
+newName <- gsub("\\()", "", names(Dat))
+colnames(Dat) <- newName
 # output the data after finishing step 1. 2. 3. and 4. 
 fnm <- "CombinedTrainTestData.txt"
 write.table(Dat, fnm, quote = FALSE, sep = "\t", row.names = FALSE)
 # 5.	From the data set in step 4, creates a second, independent tidy data set #
-#     with the average of each variable for each activity and each subject. #
+#       with the average of each variable for each activity and each subject. #
 M <- ncol(Dat)
 Dat3 <- Dat %>% 
   group_by(subject, activity_labels) %>%
   summarise_all("mean")
 fnm <- "Neat_meanSubjectActivityData.txt"
 write.table(Dat3, fnm, quote = FALSE, sep = "\t", row.names = FALSE)
+# End of Script #
+
