@@ -1,4 +1,4 @@
-# GetCleanDataPrj
+# Getting Cleaning Data Project
 Final project of Cousera course "Getting and Cleaning Data"
 
 R script "run_analysis.R" description
