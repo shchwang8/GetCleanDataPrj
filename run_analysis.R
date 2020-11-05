@@ -21,7 +21,7 @@ D_train3 <- read.table(f_train3, sep = " ")
 # combine "Subject", "Active_Label", and "Train measurement"
 D_train <- cbind(D_train1, D_train3)
 D_train <- cbind(D_train, D_train2)
-head(D_train)
+# head(D_train)
 # Read in Test Data #
 tPath2 <- "/UCI HAR Dataset/test/"
 f_test1 <- paste0(tPath, tPath2, "subject_test.txt")

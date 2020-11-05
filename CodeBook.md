@@ -1,7 +1,7 @@
 - "CombinedTrainTestData.txt" is the combined dataset after finishing step 4. 
 - "Neat_meanSubjectActivityData.txt" if the final neat dataset
 
-Explaination of the neat dataset 
+Explain the final neat dataset 
 1. The dataset's records includes 10 subjects
 2. Each subject has 6 different activities
 	LAYING	
