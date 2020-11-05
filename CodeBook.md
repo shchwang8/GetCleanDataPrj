@@ -6,12 +6,12 @@ Explain the final neat dataset
 1. The dataset's records includes 10 subjects
 
 2. Each subject has 6 different activities
-    LAYING	
-    SITTING	
-    STANDING	
-    WALKING	
-    WALKING_DOWNSTAIRS	
-    WALKING_UPSTAIRS	
+    LAYING, 	
+    SITTING, 	
+    STANDING, 	
+    WALKING, 
+    WALKING_DOWNSTAIRS, 	
+    WALKING_UPSTAIRS. 
     
 3. The dataset's variables include differnts measurements of mean and std (standard deviation) values for following patterns: ('-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.)
 
