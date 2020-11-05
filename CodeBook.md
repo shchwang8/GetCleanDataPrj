@@ -1,4 +1,5 @@
 "CombinedTrainTestData.txt" is the combined dataset after finishing step 4. 
+
 "Neat_meanSubjectActivityData.txt" if the final neat dataset
 
 Explain the final neat dataset 
